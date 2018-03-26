@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo> 
+    <!-- DICH VỤ -->
+     <record id="view_profiles_profile_tree" model="ir.ui.view">
+        <field name="name">Tài khoản Ví</field>
+        <field name="model">goopay.ewallet.profile.base</field>
+        <field name="arch" type="xml">
+            <tree string="Tài khoản">
+                <field name="name"/>
+                <field name="profile_id"/>
+                <field name="full_name"/>
+                <field name="email"/>
+                <field name="mobile"/>
+                <field name="profile_type"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record> 
+
+    <record id="view_profiles_profile_form" model="ir.ui.view">
+        <field name="model">goopay.ewallet.profile.base</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="name">Tài khoản Ví</field>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name='name'/>
+                            <field name='profile_id'/>
+                        </group>
+                        <group>
+                            <field name='profile_type'/>
+                            <field name='status'/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name='full_name'/>
+                    </group>
+                    <group>
+                        <group>
+                            <field name='email'/>
+                        </group>
+                        <group>
+                            <field name='mobile'/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_profiles_profile" model="ir.actions.act_window">
+        <field name="name">Tài khoản Ví</field>
+        <field name="res_model">goopay.ewallet.profile.base</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,kanban,form,pivot,graph</field>
+        <field name="view_id" ref="view_profiles_profile_tree"/>
+        <field name="domain">[]</field>    
+    </record>
+</odoo>

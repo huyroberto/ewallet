@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo> 
+    <!-- DICH VỤ -->
+     <record id="view_settings_service_tree" model="ir.ui.view">
+        <field name="name">Cấu hình dịch vụ</field>
+        <field name="model">goopay.ewallet.service.base</field>
+        <field name="arch" type="xml">
+            <tree string="Cấu hình dịch vụ">
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record> 
+
+    <record id="view_settings_service_form" model="ir.ui.view">
+        <field name="model">goopay.ewallet.service.base</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="name">Cấu hình dịch vụ</field>
+                <sheet>
+                    <group>
+                        <field name='name'/>
+                        </group>
+                    <group>
+                        <field name='description'/>
+                    </group>
+                    <field name='products'  mode="tree,kanban">
+                        <tree string="Sản phẩm">
+                            <field name="name"/>
+                            <field name="parent"/>
+                            <field name="provider"/>
+                            <field name="description"/>
+                        </tree>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_settings_service" model="ir.actions.act_window">
+        <field name="name">Cấu hình nhà cung cấp</field>
+        <field name="res_model">goopay.ewallet.service.base</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,kanban,form,pivot,graph</field>
+        <field name="view_id" ref="view_settings_service_tree"/>
+        <field name="domain">[]</field>    
+    </record>
+
+    <!-- NHÀ CUNG CẤP -->
+     <record id="view_settings_provider_tree" model="ir.ui.view">
+        <field name="name">Cấu hình nhà cung cấp</field>
+        <field name="model">goopay.ewallet.service.provider</field>
+        <field name="arch" type="xml">
+            <tree string="Cấu hình dịch vụ">
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record> 
+
+    <record id="view_settings_provider_form" model="ir.ui.view">
+        <field name="model">goopay.ewallet.service.provider</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="name">Cấu hình nhà cung cấp</field>
+                <sheet>
+                    <group>
+                        <field name='name'/>
+                        </group>
+                    <group>
+                        <field name='description'/>
+                    </group>
+                    <field name='products'  mode="tree,kanban">
+                        <tree string="Sản phẩm">
+                            <field name="name"/>
+                            <field name="parent"/>
+                            <field name="service"/>
+                            <field name="description"/>
+                        </tree>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_settings_provider" model="ir.actions.act_window">
+        <field name="name">Cấu hình dịch vụ</field>
+        <field name="res_model">goopay.ewallet.service.provider</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,kanban,form,pivot,graph</field>
+        <field name="view_id" ref="view_settings_provider_tree"/>
+        <field name="domain">[]</field>    
+    </record>
+
+    <!-- SẢN PHẨM -->
+     <record id="view_settings_product_tree" model="ir.ui.view">
+        <field name="name">Cấu hình sản phẩm</field>
+        <field name="model">goopay.ewallet.service.product</field>
+        <field name="arch" type="xml">
+            <tree string="Cấu hình dịch vụ">
+                <field name="name"/>
+                <field name="description"/>
+                <field name="service"/>
+                <field name="provider"/>
+                <field name="parent"/>
+            </tree>
+        </field>
+    </record> 
+
+    <record id="view_settings_product_form" model="ir.ui.view">
+        <field name="model">goopay.ewallet.service.product</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="name">Cấu hình sản phẩm</field>
+                <sheet>
+                    <group>
+                        <field name='name'/>
+                    </group>
+                    <group>
+                        <field name='description'/>
+                    </group>
+                    <group>
+                        <group>
+                            <field name='service'/>
+                        </group>
+                        <group>
+                            <field name='provider'/>
+                        </group>
+                    </group>
+                    <field name='sub_products'  mode="tree,kanban">
+                        <tree string="Sản phẩm">
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="service"/>
+                            <field name="provider"/>
+                        </tree>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_settings_product" model="ir.actions.act_window">
+        <field name="name">Cấu hình sản phẩm</field>
+        <field name="res_model">goopay.ewallet.service.product</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,kanban,form,pivot,graph</field>
+        <field name="view_id" ref="view_settings_product_tree"/>
+        <field name="domain">[]</field>    
+    </record>
+</odoo>

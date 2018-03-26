@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem name="Goopay eWallet" id="menu_ewallet_root" groups="base.group_user" sequence="500" web_icon="hr_expense,static/description/icon.png"/>
+        <menuitem name="Sản phẩm - dịch vụ" id="menu_ewallet_services" groups="base.group_user"  parent="menu_ewallet_root" />
+            <menuitem name="Dịch vụ" id="menu_ewallet_services_service" groups="base.group_user"  
+                parent="menu_ewallet_services"  
+                action="action_settings_service"/>
+            <menuitem name="Nhà cung cấp" id="menu_ewallet_services_provider" groups="base.group_user"  
+                parent="menu_ewallet_services"  
+                action="action_settings_provider"/>
+            <menuitem name="Sản phẩm" id="menu_ewallet_services_product" groups="base.group_user"  
+                parent="menu_ewallet_services"  
+                action="action_settings_product"/>
+        <menuitem name="Tài khoản - khách hàng" id="menu_ewallet_profiles" groups="base.group_user"  parent="menu_ewallet_root" />
+            <menuitem name="Khách hàng" id="menu_ewallet_profiles_profile" groups="base.group_user"  
+                parent="menu_ewallet_profiles"  
+                action="action_profiles_profile"/>
+</odoo>
